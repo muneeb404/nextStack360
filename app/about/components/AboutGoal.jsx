@@ -2,7 +2,7 @@ import React from 'react'
 
 function AboutGoal() {
     return (
-        <div className='px-20 py-12 '>
+        <div className='px-20 py-12 mobile:max-tablet:px-10'>
             <h1 className='text-5xl font-bold poppins text-center my-5'>What We are Building at <span className='text-[#E47725]'>Stack360?</span></h1>
             <div className='flex justify- relative pb-64 mobile:max-laptop:pb-[0]'>
                 <div className='poppins w-[50%] pt-8 mobile:max-laptop:w-[100%]'>

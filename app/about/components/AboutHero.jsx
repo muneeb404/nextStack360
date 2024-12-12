@@ -8,7 +8,7 @@ function AboutHero() {
         mobile:max-laptop:flex-wrap 
         mobile:max-tablet:px-10"
       >
-        <div className="w-[60%] mobile:max-laptop:w-full">
+        <div className="w-[60%] mobile:max-laptop:w-full mobile:max-tablet:pb-8">
           <h1 className="text-[4rem] font-bold leading-[5rem] text-[#191818] mb-4">
           Your Partner For <span className="text-[#E47725]">Software </span>
             Innovation
