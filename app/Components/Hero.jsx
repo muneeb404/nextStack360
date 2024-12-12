@@ -4,12 +4,13 @@ function Hero() {
   return (
     <div>
         <div
-        className="bg-white w-full flex px-20 mt-[88px] pt-6 justify-between items-center 
-        mobile:max-laptop:flex-wrap 
+        className="bg-white w-full flex px-20 mt-[88px] pt-6 justify-between poppins items-center 
+        mobile:max-laptop:flex-wrap-reverse
         mobile:max-tablet:px-10"
       >
         <div className="w-[50%] mobile:max-laptop:w-full">
-          <h1 className="text-[4rem] font-bold leading-[5rem] text-[#191818] mb-4">
+          <h1 className="text-[4rem] font-bold leading-[5rem] text-[#191818] mb-4 
+          mobile:max-laptop:text-[3rem] mobile:max-laptop:leading-[4rem]">
             We <span className="text-[#E47725]">Develop</span>
             <br />
             Software Solutions

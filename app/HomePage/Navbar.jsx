@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import ServicesHover from "../Components/ServicesHover";
 import HireTalentMenu from "../Components/HireTalentMenu";
 
@@ -10,10 +10,29 @@ function Navbar() {
   const [isServicesHover, setIsServicesHover] = useState(false); // Manage Hover state
   const [isHireHover, setIsHireHover] = useState(false); // Manage Hover state
 
+  const navbarRef = useRef(null);
+
   const handleServicesMouseEnter = () => setIsServicesHover(true);
   const handleServicesMouseLeave = () => setIsServicesHover(false);
   const handleHireMouseEnter = () => setIsHireHover(true);
   const handleHireMouseLeave = () => setIsHireHover(false);
+
+  // Close navbar when clicking outside
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (
+        isOpen &&
+        navbarRef.current &&
+        !navbarRef.current.contains(event.target)
+      ) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, [isOpen]);
 
   return (
     <div className="relative overflow-visible">
@@ -21,6 +40,7 @@ function Navbar() {
         <img className="w-[8.5rem]" src="logo.svg" alt="" />
         <div>
           <ul
+            ref={navbarRef} // Reference for outside click detection
             className={`flex gap-8 rajdhani text-[16px] font-semibold text-black
               mobile:max-laptop:absolute mobile:max-laptop:flex-col bg-white
               mobile:max-laptop:h-screen mobile:max-laptop:w-[12rem]
@@ -33,14 +53,14 @@ function Navbar() {
               } transition-all duration-300 ease-in-out`}
           >
             <li
-              className="cursor-pointer py-6
-            mobile:max-laptop:py-0 hover:text-[#E47725] transition-all"
+              className="cursor-pointer py-6 mobile:max-laptop:py-0 hover:text-[#E47725] transition-all"
+              onClick={() => setIsOpen(false)} // Close navbar on click
             >
               <Link href="/">Home</Link>
             </li>
             <li
-              className="cursor-pointer py-6 hover:text-[#E47725] transition-all
-            mobile:max-laptop:py-0"
+              className="cursor-pointer py-6 hover:text-[#E47725] transition-all mobile:max-laptop:py-0"
+              onClick={() => setIsOpen(false)} // Close navbar on click
             >
               <Link href="/about">About Us</Link>
             </li>
@@ -48,10 +68,10 @@ function Navbar() {
               className=""
               onMouseEnter={handleServicesMouseEnter}
               onMouseLeave={handleServicesMouseLeave}
+              onClick={() => setIsOpen(false)} // Close navbar on click
             >
               <div
-                className="flex gap-1 py-6 hover:text-[#E47725] transition-all
-            mobile:max-laptop:py-0"
+                className="flex gap-1 py-6 hover:text-[#E47725] transition-all mobile:max-laptop:py-0"
               >
                 <Link href="/services">Services</Link>
                 <img src="navArrow.svg" alt="" />
@@ -62,10 +82,10 @@ function Navbar() {
               className=""
               onMouseEnter={handleHireMouseEnter}
               onMouseLeave={handleHireMouseLeave}
+              onClick={() => setIsOpen(false)} // Close navbar on click
             >
               <div
-                className="flex gap-1 cursor-pointer py-6 hover:text-[#E47725] transition-all 
-            mobile:max-laptop:py-0"
+                className="flex gap-1 cursor-pointer py-6 hover:text-[#E47725] transition-all mobile:max-laptop:py-0"
               >
                 <Link href="/hire-talent">Hire Talent</Link>
                 <img src="navArrow.svg" alt="" />
@@ -73,14 +93,14 @@ function Navbar() {
               </div>
             </li>
             <li
-              className="cursor-pointer py-6 hover:text-[#E47725] transition-all
-            mobile:max-laptop:py-0"
+              className="cursor-pointer py-6 hover:text-[#E47725] transition-all mobile:max-laptop:py-0"
+              onClick={() => setIsOpen(false)} // Close navbar on click
             >
               <Link href="/case-studies">Case Studies</Link>
             </li>
             <li
-              className="cursor-pointer py-6 hover:text-[#E47725] transition-all
-            mobile:max-laptop:py-0"
+              className="cursor-pointer py-6 hover:text-[#E47725] transition-all mobile:max-laptop:py-0"
+              onClick={() => setIsOpen(false)} // Close navbar on click
             >
               <Link href="/contact">Contact</Link>
             </li>
@@ -98,8 +118,7 @@ function Navbar() {
         </div>
         {/* "Get in Touch" Button */}
         <button
-          className="text-[#E47725] rajdhani text-[16px] outline-none font-semibold border border-1.5 border-[#E47725] rounded-md px-3 py-1.5 
-        mobile:max-laptop:hidden"
+          className="text-[#E47725] rajdhani text-[16px] outline-none font-semibold border border-1.5 border-[#E47725] rounded-md px-3 py-1.5 mobile:max-laptop:hidden"
         >
           Get in touch
         </button>
