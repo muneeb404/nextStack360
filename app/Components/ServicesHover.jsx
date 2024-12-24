@@ -4,7 +4,7 @@ import React from "react";
 
 function ServicesHover({ onLinkClick, showHide }) {
   return (
-    <div style={ {display: !showHide ? 'none' : 'flex'} } className="bg-[#FFF5EC] absolute left-0 top-[-2] w-full mt-[78px] p-20 flex items-start poppins mobile:max-laptop:hidden">
+    <div style={ {display: !showHide ? 'none' : 'flex'} } className="bg-[#FFF5EC] absolute left-0 top-[-5] w-full mt-[78px] p-20 flex items-start poppins mobile:max-laptop:hidden">
       <div className="w-[40%]">
         <h1 className="text-[32px] font-semibold poppins text-[#191818] max-w-[80%]">
           Gain the Expertise You Need for Successful Product Development
