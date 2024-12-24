@@ -4,11 +4,13 @@ import Link from "next/link";
 import React, { useState, useEffect, useRef } from "react";
 import ServicesHover from "../Components/ServicesHover";
 import HireTalentMenu from "../Components/HireTalentMenu";
+import Image from "next/image";
+import Logo from "@/public/logo.svg"
 
 function Navbar() {
-  const [isOpen, setIsOpen] = useState(false); // Manage open/close state
-  const [isServicesHover, setIsServicesHover] = useState(false); // Manage Hover state
-  const [isHireHover, setIsHireHover] = useState(false); // Manage Hover state
+  const [isOpen, setIsOpen] = useState(false); 
+  const [isServicesHover, setIsServicesHover] = useState(false);
+  const [isHireHover, setIsHireHover] = useState(false);
 
   const navbarRef = useRef(null);
 
@@ -17,7 +19,11 @@ function Navbar() {
   const handleHireMouseEnter = () => setIsHireHover(true);
   const handleHireMouseLeave = () => setIsHireHover(false);
 
-  // Close navbar when clicking outside
+  const handleLinkClick = () => {
+    setIsServicesHover(false);
+    setIsHireHover(false);
+  };
+
   useEffect(() => {
     const handleOutsideClick = (event) => {
       if (
@@ -37,10 +43,10 @@ function Navbar() {
   return (
     <div className="relative overflow-visible">
       <div className="bg-white px-20 flex items-center justify-between w-full h-[78px] fixed top-0 z-40 mobile:max-tablet:px-10">
-        <img className="w-[8.5rem]" src="logo.svg" alt="" />
+        <Image src={Logo} alt="logo" />
         <div>
           <ul
-            ref={navbarRef} // Reference for outside click detection
+            ref={navbarRef}
             className={`flex gap-8 rajdhani text-[16px] font-semibold text-black
               mobile:max-laptop:absolute mobile:max-laptop:flex-col bg-white
               mobile:max-laptop:h-screen mobile:max-laptop:w-[12rem]
@@ -54,13 +60,13 @@ function Navbar() {
           >
             <li
               className="cursor-pointer py-6 mobile:max-laptop:py-0 hover:text-[#E47725] transition-all"
-              onClick={() => setIsOpen(false)} // Close navbar on click
+              onClick={() => setIsOpen(false)}
             >
               <Link href="/">Home</Link>
             </li>
             <li
               className="cursor-pointer py-6 hover:text-[#E47725] transition-all mobile:max-laptop:py-0"
-              onClick={() => setIsOpen(false)} // Close navbar on click
+              onClick={() => setIsOpen(false)}
             >
               <Link href="/about">About Us</Link>
             </li>
@@ -68,39 +74,35 @@ function Navbar() {
               className=""
               onMouseEnter={handleServicesMouseEnter}
               onMouseLeave={handleServicesMouseLeave}
-              onClick={() => setIsOpen(false)} // Close navbar on click
+              onClick={() => setIsOpen(false)}
             >
-              <div
-                className="flex gap-1 py-6 hover:text-[#E47725] transition-all mobile:max-laptop:py-0"
-              >
-                <Link href="/services">Services</Link>
+              <div className="flex gap-1 py-6 hover:text-[#E47725] transition-all mobile:max-laptop:py-0">
+                <Link href="/">Services</Link>
                 <img src="navArrow.svg" alt="" />
-                {isServicesHover && <ServicesHover />}
+                <ServicesHover onLinkClick={handleLinkClick} showHide={isServicesHover} />
               </div>
             </li>
             <li
               className=""
               onMouseEnter={handleHireMouseEnter}
               onMouseLeave={handleHireMouseLeave}
-              onClick={() => setIsOpen(false)} // Close navbar on click
+              onClick={() => setIsOpen(false)}
             >
-              <div
-                className="flex gap-1 cursor-pointer py-6 hover:text-[#E47725] transition-all mobile:max-laptop:py-0"
-              >
-                <Link href="/hire-talent">Hire Talent</Link>
+              <div className="flex gap-1 cursor-pointer py-6 hover:text-[#E47725] transition-all mobile:max-laptop:py-0">
+                <Link href="/">Hire Talent</Link>
                 <img src="navArrow.svg" alt="" />
                 {isHireHover && <HireTalentMenu />}
               </div>
             </li>
             <li
               className="cursor-pointer py-6 hover:text-[#E47725] transition-all mobile:max-laptop:py-0"
-              onClick={() => setIsOpen(false)} // Close navbar on click
+              onClick={() => setIsOpen(false)}
             >
               <Link href="/case-studies">Case Studies</Link>
             </li>
             <li
               className="cursor-pointer py-6 hover:text-[#E47725] transition-all mobile:max-laptop:py-0"
-              onClick={() => setIsOpen(false)} // Close navbar on click
+              onClick={() => setIsOpen(false)}
             >
               <Link href="/contact">Contact</Link>
             </li>
@@ -117,9 +119,7 @@ function Navbar() {
           </ul>
         </div>
         {/* "Get in Touch" Button */}
-        <button
-          className="text-[#E47725] rajdhani text-[16px] outline-none font-semibold border border-1.5 border-[#E47725] rounded-md px-3 py-1.5 mobile:max-laptop:hidden"
-        >
+        <button className="text-[#E47725] rajdhani text-[16px] outline-none font-semibold border border-1.5 border-[#E47725] rounded-md px-3 py-1.5 mobile:max-laptop:hidden">
           Get in touch
         </button>
         {/* Open Button */}

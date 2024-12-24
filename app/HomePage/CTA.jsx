@@ -1,4 +1,6 @@
 import React from "react";
+import ctaMask from "@/public/ctaMask.svg"
+import Image from "next/image";
 
 function CTA() {
   return (
@@ -9,9 +11,9 @@ function CTA() {
         tablet:max-laptop:h-[25rem]
         mobile:max-tablet:h-[34rem]"
       >
-        <img
+        <Image
           className="absolute top-0 left-0 mobile:max-laptop:hidden"
-          src='ctaMask.svg'
+          src={ctaMask}
           alt=""
         />
         <div className="flex justify-center flex-col items-center h-full text-center gap-3 py-20">

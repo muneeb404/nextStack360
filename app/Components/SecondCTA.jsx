@@ -11,7 +11,9 @@ function SecondCTA() {
             boxShadow: "inset -5px -5px 250px rgba(255, 255, 255, 0.02)",
           }}
         >
-          <div className="text-[48px] text-[#E47725] font-semibold rajdhani">9+</div>
+          <div className="text-[48px] text-[#E47725] font-semibold rajdhani">
+            9+
+          </div>
           <h1 className="text-[24px] py-2 font-medium poppins">
             Active Clients
           </h1>
@@ -28,7 +30,7 @@ function SecondCTA() {
         >
           <div className="text-[48px]  font-semibold rajdhani">45+</div>
           <h1 className="text-[24px] py-2 font-medium poppins">
-          Projects Done
+            Projects Done
           </h1>
           <p className="text-[16px] poppins">
             Lorem ipsum dolor sit amet, consectetur adipisicing.
@@ -43,7 +45,7 @@ function SecondCTA() {
         >
           <div className="text-[48px] font-semibold rajdhani">5+</div>
           <h1 className="text-[24px] py-2 font-medium poppins">
-          Glorious Years
+            Glorious Years
           </h1>
           <p className="text-[16px] poppins">
             Lorem ipsum dolor sit amet, consectetur adipisicing.

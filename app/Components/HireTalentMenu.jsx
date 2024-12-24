@@ -3,7 +3,7 @@ import React from "react";
 
 function HireTalentMenu() {
   return (
-    <div className="bg-[#FFF5EC] transition-all absolute left-0 top-0 w-full mt-[78px] p-20 flex items-start poppins 
+    <div className="bg-[#FFF5EC] transition-all absolute left-0 top-[-2] w-full mt-[78px] p-20 flex items-start poppins 
     mobile:max-laptop:hidden">
       <div className="w-[40%]">
         <h1 className="text-[32px] font-semibold poppins text-[#191818] max-w-[80%]">

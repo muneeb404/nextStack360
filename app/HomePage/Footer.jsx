@@ -1,4 +1,12 @@
 import React from "react";
+import Location from "@/public/location.svg";
+import Mail from "@/public/mail.svg";
+import Call from "@/public/call.svg";
+import rightArrow from "@/public/rightArrow.svg"
+import Insta from "@/public/insta.svg"
+import Linkedin from "@/public/linkedin.svg"
+import Image from "next/image";
+
 
 function Footer() {
   return (
@@ -11,19 +19,22 @@ function Footer() {
           <div className=" flex flex-col gap-3 mb-8">
             <img className="w-[156px] pb-3" src='logo.svg' alt="" />
             <div className="flex gap-5">
-              <img className="w-[16px]" src='location.svg' alt="" />
+              {/* <img className="w-[16px]" src='location.svg' alt="" /> */}
+              <Image  className="w-[16px]" src={Location} alt="" />
               <p className="text-[14px] font-light">
                 82-G, First Floor, <br />
                 DHA Phase 1, Lahore Pakistan
               </p>
             </div>
             <div className="flex gap-5">
-              <img className="w-[16px]" src="call.svg" alt="" />
+              {/* <img className="w-[16px]" src="call.svg" alt="" /> */}
+              <Image className="w-[16px]" src={Call} alt=""/>
               <p className="text-[14px] font-light">+92 331 11 11 753</p>
             </div>
             <div className="pt-[0.08rem] bg-[#DCDCDC]"></div>
             <div className="flex gap-5">
-              <img className="w-[16px]" src="mail.svg" alt="" />
+              {/* <img className="w-[16px]" src="mail.svg" alt="" /> */}
+              <Image className="w-[16px]" src={Mail} alt=""/>
               <p className="text-[14px] font-light">Sales@stack360.co</p>
             </div>
           </div>
@@ -59,18 +70,18 @@ function Footer() {
                 placeholder="Email Address"
               />
               <button className="bg-[#E47725] px-3 py-2 rounded-md">
-                <img src='rightArrow.svg' alt="" />
+                <Image src={rightArrow} alt="" />
               </button>
             </div>
             <div className="flex pt-4 gap-3">
               <div className="bg-black rounded-full p-2">
-                <img src='insta.svg' alt="" />
+                <Image src={Insta} alt="" />
               </div>
               <div className="bg-black rounded-full p-2">
-                <img src='insta.svg' alt="" />
+                <Image src={Linkedin} alt="" />
               </div>
               <div className="bg-black rounded-full p-2">
-                <img src='linkedin.svg' alt="" />
+                <Image src={Insta} alt="" />
               </div>
             </div>
           </div>

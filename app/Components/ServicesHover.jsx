@@ -1,9 +1,10 @@
 import Link from "next/link";
 import React from "react";
 
-function ServicesHover() {
+
+function ServicesHover({ onLinkClick, showHide }) {
   return (
-    <div className="bg-[#FFF5EC]  absolute left-0 top-0 w-full mt-[78px] p-20 flex items-start poppins mobile:max-laptop:hidden">
+    <div style={ {display: !showHide ? 'none' : 'flex'} } className="bg-[#FFF5EC] absolute left-0 top-[-2] w-full mt-[78px] p-20 flex items-start poppins mobile:max-laptop:hidden">
       <div className="w-[40%]">
         <h1 className="text-[32px] font-semibold poppins text-[#191818] max-w-[80%]">
           Gain the Expertise You Need for Successful Product Development
@@ -20,13 +21,13 @@ function ServicesHover() {
           </div>
           <ul>
             <li className="text-[#777777] text-[16px] font-medium mb-2 hover:text-[#E47725] transition-all">
-              <Link href="/">Web Development</Link>
+              <Link onClick={onLinkClick} href="/services/web-development">Web Development</Link>
             </li>
             <li className="text-[#777777] text-[16px] font-medium mb-2 hover:text-[#E47725] transition-all">
-              <Link href="/">Mobile App Development</Link>
+              <Link onClick={onLinkClick} href="/services/mobile-app-development">Mobile App Development</Link>
             </li>
             <li className="text-[#777777] text-[16px] font-medium mb-2 hover:text-[#E47725] transition-all">
-              <Link href="/">DevOps</Link>
+              <Link onClick={onLinkClick} href="/">DevOps</Link>
             </li>
           </ul>
         </div>
@@ -36,10 +37,10 @@ function ServicesHover() {
           </div>
           <ul>
             <li className="text-[#777777] text-[16px] font-medium mb-2 hover:text-[#E47725] transition-all">
-              <Link href="/">Graphics Designing</Link>
+              <Link onClick={onLinkClick} href="/">Graphics Designing</Link>
             </li>
             <li className="text-[#777777] text-[16px] font-medium mb-2 hover:text-[#E47725] transition-all">
-              <Link href="/">UI/UX</Link>
+              <Link onClick={onLinkClick} href="/">UI/UX</Link>
             </li>
           </ul>
         </div>
@@ -49,7 +50,7 @@ function ServicesHover() {
           </div>
           <ul>
             <li className="text-[#777777] text-[16px] font-medium mb-2 hover:text-[#E47725] transition-all">
-              <Link href="/">QA & Testing</Link>
+              <Link onClick={onLinkClick} href="/">QA & Testing</Link>
             </li>
           </ul>
         </div>

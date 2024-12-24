@@ -4,7 +4,7 @@ function AboutHero() {
   return (
     <div>
       <div
-        className="bg-white w-full flex px-20 mt-[88px] justify-between items-center 
+        className="bg-white w-full flex px-20 poppins mt-[88px] justify-between items-center 
         mobile:max-laptop:flex-wrap-reverse 
         mobile:max-tablet:px-10"
       >
